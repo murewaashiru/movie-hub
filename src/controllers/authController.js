@@ -1,6 +1,6 @@
 const { hash, genSalt, compareSync } = require('bcrypt');
 const { Users } = require('../database/models');
-const SessionHandler = require('../utils/SessionHandler');
+const SessionHandler = require('../utils/sessionHandler');
 const { successResponse, errorResponse } = require('../utils/response');
 
 const createUser = async (req, res, next) => {
