@@ -62,13 +62,13 @@ const addToList = async (req, res, next) => {
       return errorResponse(res, 404, 'Movie does not exist');
     }
 
-    // return res.status(200).json({ data, movieInList, movieExists });
     // Get the movie details
     const movie = allMovies.filter((item) => item.id === data.movieId);
     data.title = movie[0].original_title;
+    data.description = movie[0].overview.slice(0, 250);
+    data.image = `https://image.tmdb.org/t/p/w500${movie[0].poster_path}`;
 
     const result = await MovieLists.create(data);
-
     return successResponse(res, 201, 'Movie added to list', result);
   } catch (err) {
     return next(err);
