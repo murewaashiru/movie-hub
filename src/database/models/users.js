@@ -21,9 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Users.associate = (models) => {
-    Users.hasMany(models.MovieLists, {
-      onDelete: 'cascade',
-    });
+    // Users.hasMany(models.MovieLists, {
+    //   onDelete: 'cascade',
+    // });
   };
   return Users;
 };
